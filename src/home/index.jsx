@@ -1,12 +1,9 @@
-import LinkButton from '../common/LinkButton'
-
-function App() {
+function Home() {
   return (
     <div>
-      Home
-      <LinkButton />
+      <h1> Page d'accueil 🏠</h1>
     </div>
   )
 }
 
-export default App
+export default Home
