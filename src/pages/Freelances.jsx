@@ -4,20 +4,14 @@ const freelanceProfiles = [
   {
     name: 'Jane Doe',
     jobTitle: 'Devops',
-    picture:
-      'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
   },
   {
     name: 'John Doe',
     jobTitle: 'Developpeur frontend',
-    picture:
-      'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
   },
   {
     name: 'Jeanne Biche',
     jobTitle: 'Développeuse Fullstack',
-    picture:
-      'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
   },
 ]
 
@@ -29,7 +23,6 @@ function Freelances() {
         <Card
           key={`${profile.name}-${index}`}
           label={profile.jobTitle}
-          picture={profile.picture}
           title={profile.name}
         />
       ))}

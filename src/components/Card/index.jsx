@@ -16,4 +16,10 @@ Card.propTypes = {
   picture: PropTypes.string,
 }
 
+Card.defaultProps = {
+  label: '',
+  title: '',
+  picture:
+    'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
+}
 export default Card
