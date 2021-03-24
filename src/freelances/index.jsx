@@ -2,19 +2,19 @@ import Card from './Card'
 
 const freelanceProfiles = [
   {
-    name: 'Cersei Lannister',
+    name: 'Jane Doe',
     jobTitle: 'Devops',
     picture:
       'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
   },
   {
-    name: 'Jon Snow',
+    name: 'John Doe',
     jobTitle: 'Developpeur frontend',
     picture:
       'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
   },
   {
-    name: 'Dany Targaryen',
+    name: 'Jeanne Biche',
     jobTitle: 'Développeuse Fullstack',
     picture:
       'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
