@@ -1,12 +1,40 @@
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import colors from '../../utils/style/colors'
+
+const CardLabel = styled.span`
+  color: #5843e4;
+  font-size: 22px;
+  font-weight: bold;
+`
+
+const CardImage = styled.img`
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+`
+
+const CardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: ${colors.background};
+  border-radius: 30px;
+  width: 350px;
+  transition: 200ms;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 10px #e2e3e9;
+  }
+`
 
 function Card({ label, title, picture }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', padding: 15 }}>
-      <span>{label}</span>
-      <img src={picture} alt="freelance" height={80} width={80} />
+    <CardWrapper>
+      <CardLabel>{label}</CardLabel>
+      <CardImage src={picture} alt="freelance" />
       <span>{title}</span>
-    </div>
+    </CardWrapper>
   )
 }
 
@@ -22,4 +50,5 @@ Card.defaultProps = {
   picture:
     'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
 }
+
 export default Card
