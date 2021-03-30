@@ -11,9 +11,9 @@ function Card({ label, title, picture }) {
 }
 
 Card.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  picture: PropTypes.string,
+  picture: PropTypes.string.isRequired,
 }
 
 Card.defaultProps = {
