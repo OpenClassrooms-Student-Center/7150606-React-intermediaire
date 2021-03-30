@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from './home'
-import Survey from './survey'
-import Header from './common/Header'
-import Error from './common/Error'
+import Home from './pages/Home'
+import Survey from './pages/Survey'
+import Header from './components/Header'
+import Error from './components/Error'
 
 ReactDOM.render(
   <React.StrictMode>
