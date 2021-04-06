@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import styled from 'styled-components'
 import colors from '../utils/style/colors'
+import { Loader } from '../utils/style/Atoms'
 
 const CardsContainer = styled.div`
   display: grid;
@@ -25,38 +27,47 @@ const PageSubtitle = styled.h2`
   text-align: center;
   padding-bottom: 30px;
 `
-
-const freelanceProfiles = [
-  {
-    name: 'Jane Doe',
-    jobTitle: 'Devops',
-  },
-  {
-    name: 'John Doe',
-    jobTitle: 'Developpeur frontend',
-  },
-  {
-    name: 'Jeanne Biche',
-    jobTitle: 'Développeuse Fullstack',
-  },
-]
+const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 function Freelances() {
+  const [isDataLoading, setDataLoading] = useState(false)
+  const [freelancersList, setFreelancesList] = useState([])
+
+  useEffect(() => {
+    setDataLoading(true)
+    fetch(`http://localhost:8000/freelances`).then((response) =>
+      response.json().then(({ freelancersList }) => {
+        setFreelancesList(freelancersList)
+        setDataLoading(false)
+      })
+    )
+  }, [])
+
   return (
     <div>
       <PageTitle>Trouvez votre prestataire</PageTitle>
       <PageSubtitle>
         Chez Shiny nous réunissons les meilleurs profils pour vous.
       </PageSubtitle>
-      <CardsContainer>
-        {freelanceProfiles.map((profile, index) => (
-          <Card
-            key={`${profile.name}-${index}`}
-            label={profile.jobTitle}
-            title={profile.name}
-          />
-        ))}
-      </CardsContainer>
+      {isDataLoading ? (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      ) : (
+        <CardsContainer>
+          {freelancersList.map((profile, index) => (
+            <Card
+              key={`${profile.name}-${index}`}
+              label={profile.job}
+              title={profile.name}
+              picture={profile.picture}
+            />
+          ))}
+        </CardsContainer>
+      )}
     </div>
   )
 }
