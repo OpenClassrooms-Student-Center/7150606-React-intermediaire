@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import Error from './components/Error'
 import GlobalStyle from './utils/style/GlobalStyle'
 import { ThemeProvider } from './utils/context/ThemeProvider'
+import { SurveyProvider } from './utils/context/SurveyProvider'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,18 +19,20 @@ ReactDOM.render(
         <GlobalStyle />
         <Header />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/survey/:questionNumber">
-            <Survey />
-          </Route>
-          <Route path="/results">
-            <Results />
-          </Route>
-          <Route path="/freelances">
-            <Freelances />
-          </Route>
+          <SurveyProvider>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/survey/:questionNumber">
+              <Survey />
+            </Route>
+            <Route path="/results">
+              <Results />
+            </Route>
+            <Route path="/freelances">
+              <Freelances />
+            </Route>
+          </SurveyProvider>
           <Route>
             <Error />
           </Route>
