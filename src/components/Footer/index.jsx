@@ -20,6 +20,7 @@ const NightModeButton = styled.button`
 
 function Footer() {
   const { toggleTheme } = useContext(ThemeContext)
+
   return (
     <FooterContainer>
       <NightModeButton onClick={() => toggleTheme()}>

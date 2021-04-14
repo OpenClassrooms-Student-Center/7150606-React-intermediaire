@@ -1,10 +1,11 @@
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import colors from '../utils/style/colors'
 import { Loader } from '../utils/style/Atoms'
 import { SurveyContext } from '../utils/context/SurveyProvider'
+import { useFetch } from '../utils/hooks'
 
 const SurveyContainer = styled.div`
   display: flex;
@@ -60,31 +61,29 @@ function Survey() {
   const questionNumberInt = parseInt(questionNumber)
   const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
   const nextQuestionNumber = questionNumberInt + 1
-  const [surveyData, setSurveyData] = useState({})
-  const [isDataLoading, setDataLoading] = useState(false)
+
   const { saveResults, results } = useContext(SurveyContext)
 
   function saveReply(answer) {
     saveResults({ [questionNumber]: answer })
   }
 
-  useEffect(() => {
-    setDataLoading(true)
-    fetch(`http://localhost:8000/survey`).then((response) =>
-      response.json().then(({ surveyData }) => {
-        setSurveyData(surveyData)
-        setDataLoading(false)
-      })
-    )
-  }, [])
+  const { data = {}, isLoading, error } = useFetch(
+    `http://localhost:8000/survey`
+  )
 
+  if (error) {
+    return <pre>{error}</pre>
+  }
+
+  console.log('===== data =====', data)
   return (
     <SurveyContainer>
       <QuestionTitle>Question {questionNumber}</QuestionTitle>
-      {isDataLoading ? (
+      {isLoading ? (
         <Loader />
       ) : (
-        <QuestionContent>{surveyData[questionNumber]}</QuestionContent>
+        <QuestionContent>{data[questionNumber]}</QuestionContent>
       )}
       <ReplyWrapper>
         <ReplyBox
@@ -102,7 +101,7 @@ function Survey() {
       </ReplyWrapper>
       <LinkWrapper>
         <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
-        {surveyData[questionNumberInt + 1] ? (
+        {data[questionNumberInt + 1] ? (
           <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
         ) : (
           <Link to="/results">Résultats</Link>
