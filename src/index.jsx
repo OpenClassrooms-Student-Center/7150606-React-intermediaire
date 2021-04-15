@@ -16,10 +16,10 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
-        <GlobalStyle />
-        <Header />
-        <Switch>
-          <SurveyProvider>
+        <SurveyProvider>
+          <GlobalStyle />
+          <Header />
+          <Switch>
             <Route exact path="/">
               <Home />
             </Route>
@@ -32,12 +32,12 @@ ReactDOM.render(
             <Route path="/freelances">
               <Freelances />
             </Route>
-          </SurveyProvider>
-          <Route>
-            <Error />
-          </Route>
-        </Switch>
-        <Footer />
+            <Route path="*">
+              <Error />
+            </Route>
+          </Switch>
+          <Footer />
+        </SurveyProvider>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,

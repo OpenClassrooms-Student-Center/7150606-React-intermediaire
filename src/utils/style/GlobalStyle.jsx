@@ -1,6 +1,5 @@
-import { useContext } from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { ThemeContext } from '../context/ThemeProvider'
+import { useTheme } from '../hooks'
 
 const StyledGlobalStyle = createGlobalStyle`
     * {
@@ -15,7 +14,8 @@ const StyledGlobalStyle = createGlobalStyle`
 `
 
 function GlobalStyle() {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useTheme()
+
   return <StyledGlobalStyle isDarkMode={theme === 'dark'} />
 }
 

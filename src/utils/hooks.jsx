@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from './context/ThemeProvider'
 
 export function useFetch(url) {
   const [data, setData] = useState()
@@ -8,8 +9,8 @@ export function useFetch(url) {
   useEffect(() => {
     if (!url) return
     fetch(url)
-      .then((data) => data.json())
-      .then(({ surveyData }) => setData(surveyData))
+      .then((response) => response.json())
+      .then((jsonResponse) => setData(jsonResponse))
       .then(() => setLoading(false))
       .catch((err) => {
         if (err) {
@@ -18,4 +19,9 @@ export function useFetch(url) {
       })
   }, [url])
   return { isLoading, data, error }
+}
+
+export function useTheme() {
+  const { theme } = useContext(ThemeContext)
+  return { theme }
 }

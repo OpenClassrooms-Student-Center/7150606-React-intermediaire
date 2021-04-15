@@ -3,13 +3,13 @@ import React, { useState, createContext } from 'react'
 export const SurveyContext = createContext()
 
 export const SurveyProvider = ({ children }) => {
-  const [results, setResults] = useState({})
-  const saveResults = (newResults) => {
-    setResults({ ...results, newResults })
+  const [answers, setAnswers] = useState({})
+  const saveAnswers = (newAnswers) => {
+    setAnswers({ ...answers, ...newAnswers })
   }
 
   return (
-    <SurveyContext.Provider value={{ results, saveResults }}>
+    <SurveyContext.Provider value={{ answers, saveAnswers }}>
       {children}
     </SurveyContext.Provider>
   )

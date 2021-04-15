@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import colors from '../utils/style/colors'
 import { Loader } from '../utils/style/Atoms'
 import { SurveyContext } from '../utils/context/SurveyProvider'
-import { useFetch } from '../utils/hooks'
+import { useFetch, useTheme } from '../utils/hooks'
 
 const SurveyContainer = styled.div`
   display: flex;
@@ -16,16 +16,18 @@ const SurveyContainer = styled.div`
 const QuestionTitle = styled.h2`
   text-decoration: underline;
   text-decoration-color: ${colors.primary};
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `
 
 const QuestionContent = styled.span`
   margin: 30px;
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `
 
 const LinkWrapper = styled.div`
   padding-top: 30px;
   & a {
-    color: black;
+    color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
   }
   & a:first-of-type {
     margin-right: 20px;
@@ -38,7 +40,9 @@ const ReplyBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.background};
+  background-color: ${({ theme }) =>
+    theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
   border-radius: 30px;
   cursor: pointer;
   box-shadow: ${(props) =>
@@ -61,47 +65,49 @@ function Survey() {
   const questionNumberInt = parseInt(questionNumber)
   const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
   const nextQuestionNumber = questionNumberInt + 1
+  const { theme } = useTheme()
 
-  const { saveResults, results } = useContext(SurveyContext)
+  const { saveAnswers, answers } = useContext(SurveyContext)
 
   function saveReply(answer) {
-    saveResults({ [questionNumber]: answer })
+    saveAnswers({ [questionNumber]: answer })
   }
-
-  const { data = {}, isLoading, error } = useFetch(
-    `http://localhost:8000/survey`
-  )
+  const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
+  const surveyData = data?.surveyData
 
   if (error) {
     return <pre>{error}</pre>
   }
 
-  console.log('===== data =====', data)
   return (
     <SurveyContainer>
-      <QuestionTitle>Question {questionNumber}</QuestionTitle>
+      <QuestionTitle theme={theme}>Question {questionNumber}</QuestionTitle>
       {isLoading ? (
         <Loader />
       ) : (
-        <QuestionContent>{data[questionNumber]}</QuestionContent>
+        <QuestionContent theme={theme}>
+          {surveyData[questionNumber]}
+        </QuestionContent>
       )}
       <ReplyWrapper>
         <ReplyBox
           onClick={() => saveReply(true)}
-          isSelected={results[questionNumber] === true}
+          isSelected={answers[questionNumber] === true}
+          theme={theme}
         >
           Oui
         </ReplyBox>
         <ReplyBox
           onClick={() => saveReply(false)}
-          isSelected={results[questionNumber] === false}
+          isSelected={answers[questionNumber] === false}
+          theme={theme}
         >
           Non
         </ReplyBox>
       </ReplyWrapper>
-      <LinkWrapper>
+      <LinkWrapper theme={theme}>
         <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
-        {data[questionNumberInt + 1] ? (
+        {surveyData && surveyData[questionNumberInt + 1] ? (
           <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
         ) : (
           <Link to="/results">Résultats</Link>
