@@ -9,8 +9,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Error from './components/Error'
 import GlobalStyle from './utils/style/GlobalStyle'
-import { ThemeProvider } from './utils/context/ThemeProvider'
-import { SurveyProvider } from './utils/context/SurveyProvider'
+import { ThemeProvider, SurveyProvider } from './utils/context'
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,9 +1,8 @@
-import Card from '../components/Card'
+import Card from '../../components/Card'
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import { Loader } from '../utils/style/Atoms'
-import { useFetch } from '../utils/hooks'
-import { useTheme } from '../utils/hooks'
+import colors from '../../utils/style/colors'
+import { Loader } from '../../utils/style/Atoms'
+import { useFetch, useTheme } from '../../utils/hooks'
 
 const CardsContainer = styled.div`
   display: grid;

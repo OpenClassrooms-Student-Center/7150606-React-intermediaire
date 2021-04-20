@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { useTheme } from '../../utils/hooks'
-import DefaultPicture from '../../assets/default-pic.png'
+import DefaultPicture from '../../assets/profile.png'
 
 const CardLabel = styled.span`
   color: ${({ theme }) => (theme === 'light' ? colors.primary : '#ffffff')};

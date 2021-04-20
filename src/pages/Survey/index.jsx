@@ -2,10 +2,10 @@ import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import { Loader } from '../utils/style/Atoms'
-import { SurveyContext } from '../utils/context/SurveyProvider'
-import { useFetch, useTheme } from '../utils/hooks'
+import colors from '../../utils/style/colors'
+import { Loader } from '../../utils/style/Atoms'
+import { SurveyContext } from '../../utils/context'
+import { useFetch, useTheme } from '../../utils/hooks'
 
 const SurveyContainer = styled.div`
   display: flex;
