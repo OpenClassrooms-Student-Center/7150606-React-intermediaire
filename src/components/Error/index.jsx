@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import ErrorIllustration from '../../assets/404.svg'
 
 const ErrorWrapper = styled.div`
   margin: 30px;
   display: flex;
   flex-direction: column;
-  background-color: ${colors.background};
+  background-color: ${colors.backgroundLight};
   align-items: center;
 `
 
@@ -26,7 +27,7 @@ function Error() {
   return (
     <ErrorWrapper>
       <ErrorTitle>Oups...</ErrorTitle>
-      <Illustration src="https://github.com/atoulmet/assets/blob/master/404.svg?raw=true" />
+      <Illustration src={ErrorIllustration} />
       <ErrorSubtitle>
         Il semblerait que la page que vous cherchez n’existe pas
       </ErrorSubtitle>
