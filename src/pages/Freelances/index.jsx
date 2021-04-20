@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import Card from '../components/Card'
+import Card from '../../components/Card'
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import { Loader } from '../utils/style/Atoms'
+import colors from '../../utils/style/colors'
+import { Loader } from '../../utils/style/Atoms'
 
 const CardsContainer = styled.div`
   display: grid;
