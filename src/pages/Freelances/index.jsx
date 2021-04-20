@@ -1,23 +1,21 @@
-import Card from '../components/Card'
+import Card from '../../components/Card'
+import DefaultPicture from '../../assets/default-profile.png'
 
 const freelanceProfiles = [
   {
     name: 'Jane Doe',
     jobTitle: 'Devops',
-    picture:
-      'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
+    picture: DefaultPicture,
   },
   {
     name: 'John Doe',
     jobTitle: 'Developpeur frontend',
-    picture:
-      'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
+    picture: DefaultPicture,
   },
   {
     name: 'Jeanne Biche',
     jobTitle: 'Développeuse Fullstack',
-    picture:
-      'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
+    picture: DefaultPicture,
   },
 ]
 
