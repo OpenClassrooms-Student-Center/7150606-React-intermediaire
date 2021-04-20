@@ -38,7 +38,7 @@ const ReplyBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.background};
+  background-color: ${colors.backgroundLight};
   border-radius: 30px;
   cursor: pointer;
   box-shadow: ${(props) =>
