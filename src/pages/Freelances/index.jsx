@@ -1,6 +1,6 @@
-import Card from '../components/Card'
+import Card from '../../components/Card'
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
+import colors from '../../utils/style/colors'
 
 const CardsContainer = styled.div`
   display: grid;

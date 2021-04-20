@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import { Loader } from '../utils/style/Atoms'
+import colors from '../../utils/style/colors'
+import { Loader } from '../../utils/style/Atoms'
 
 const SurveyContainer = styled.div`
   display: flex;
