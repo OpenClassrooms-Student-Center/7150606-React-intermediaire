@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import { StyledLink } from '../utils/style/Atoms'
+import colors from '../../utils/style/colors'
+import { StyledLink } from '../../utils/style/Atoms'
+import HomeIllustration from '../../assets/home-illustration.svg'
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -49,7 +50,7 @@ function Home() {
             Faire le test
           </StyledLink>
         </LeftCol>
-        <Illustration src="https://raw.githubusercontent.com/atoulmet/assets/master/home.svg" />
+        <Illustration src={HomeIllustration} />
       </HomerContainer>
     </HomeWrapper>
   )

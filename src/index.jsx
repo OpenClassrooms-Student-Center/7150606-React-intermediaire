@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
     }
 `
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
