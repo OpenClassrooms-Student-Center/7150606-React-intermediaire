@@ -2,10 +2,10 @@ import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import { Loader } from '../utils/style/Atoms'
-import { SurveyContext } from '../utils/context/SurveyProvider'
-import { useFetch } from '../utils/hooks'
+import colors from '../../utils/style/colors'
+import { Loader } from '../../utils/style/Atoms'
+import { SurveyContext } from '../../utils/context'
+import { useFetch } from '../../utils/hooks'
 
 const SurveyContainer = styled.div`
   display: flex;
@@ -62,10 +62,10 @@ function Survey() {
   const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
   const nextQuestionNumber = questionNumberInt + 1
 
-  const { saveResults, results } = useContext(SurveyContext)
+  const { saveAnswers, answers } = useContext(SurveyContext)
 
   function saveReply(answer) {
-    saveResults({ [questionNumber]: answer })
+    saveAnswers({ [questionNumber]: answer })
   }
 
   const { data = {}, isLoading, error } = useFetch(
@@ -76,7 +76,6 @@ function Survey() {
     return <pre>{error}</pre>
   }
 
-  console.log('===== data =====', data)
   return (
     <SurveyContainer>
       <QuestionTitle>Question {questionNumber}</QuestionTitle>
@@ -88,13 +87,13 @@ function Survey() {
       <ReplyWrapper>
         <ReplyBox
           onClick={() => saveReply(true)}
-          isSelected={results[questionNumber] === true}
+          isSelected={answers[questionNumber] === true}
         >
           Oui
         </ReplyBox>
         <ReplyBox
           onClick={() => saveReply(false)}
-          isSelected={results[questionNumber] === false}
+          isSelected={answers[questionNumber] === false}
         >
           Non
         </ReplyBox>
