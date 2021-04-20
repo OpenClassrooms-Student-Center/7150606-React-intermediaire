@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import DefaultPicture from '../../assets/default-profile.png'
+import DefaultPicture from '../../assets/profile.png'
 
 function Card({ label, title, picture }) {
   return (
