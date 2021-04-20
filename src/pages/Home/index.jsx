@@ -1,13 +1,14 @@
 import styled from 'styled-components'
-import colors from '../utils/style/colors'
-import { StyledLink } from '../utils/style/Atoms'
+import colors from '../../utils/style/colors'
+import { StyledLink } from '../../utils/style/Atoms'
+import HomeIllustration from '../../assets/home-illustration.svg'
 
 const HomeWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
 
-const HomerContainer = styled.div`
+const HomeContainer = styled.div`
   margin: 30px;
   background-color: ${colors.backgroundLight};
   padding: 60px 90px;
@@ -39,7 +40,7 @@ const Illustration = styled.img`
 function Home() {
   return (
     <HomeWrapper>
-      <HomerContainer>
+      <HomeContainer>
         <LeftCol>
           <StyledTitle>
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
@@ -49,8 +50,8 @@ function Home() {
             Faire le test
           </StyledLink>
         </LeftCol>
-        <Illustration src="https://raw.githubusercontent.com/atoulmet/assets/master/home.svg" />
-      </HomerContainer>
+        <Illustration src={HomeIllustration} />
+      </HomeContainer>
     </HomeWrapper>
   )
 }
