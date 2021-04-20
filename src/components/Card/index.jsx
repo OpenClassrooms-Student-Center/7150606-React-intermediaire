@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import DefaultPicture from '../../assets/profile.png'
 
 const CardLabel = styled.span`
   color: #5843e4;
@@ -18,7 +19,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: ${colors.background};
+  background-color: ${colors.backgroundLight};
   border-radius: 30px;
   width: 350px;
   transition: 200ms;
@@ -47,8 +48,7 @@ Card.propTypes = {
 Card.defaultProps = {
   label: '',
   title: '',
-  picture:
-    'https://github.com/atoulmet/assets/blob/master/profile-user.png?raw=true',
+  picture: DefaultPicture,
 }
 
 export default Card

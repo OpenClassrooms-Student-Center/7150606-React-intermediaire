@@ -1,4 +1,4 @@
-import Card from '../components/Card'
+import Card from '../../components/Card'
 import styled from 'styled-components'
 
 const CardsContainer = styled.div`
