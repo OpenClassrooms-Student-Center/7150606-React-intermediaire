@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { ThemeContext } from './context'
+import { ThemeContext } from '../context'
 
 export function useFetch(url) {
   const [data, setData] = useState()
