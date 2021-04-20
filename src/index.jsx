@@ -5,8 +5,8 @@ import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Results from './pages/Results'
 import Freelances from './pages/Freelances'
-import Header from './common/Header'
-import Error from './common/Error'
+import Header from './components/Header'
+import Error from './components/Error'
 
 ReactDOM.render(
   <React.StrictMode>
