@@ -51,7 +51,7 @@ function Home() {
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
             talents
           </StyledTitle>
-          <StyledLink to="/survey/1" $isFullLink>
+          <StyledLink to="/survey/1" $isFullLink test-id="ceci-est-un-test">
             Faire le test
           </StyledLink>
         </LeftCol>
