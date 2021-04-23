@@ -1,6 +1,7 @@
 import { rest } from 'msw'
+import '@testing-library/jest-dom/extend-expect'
 import { setupServer } from 'msw/node'
-import { waitFor, screen } from '@testing-library/react'
+import { waitForElementToBeRemoved, screen } from '@testing-library/react'
 import { render } from '../../utils/test'
 import Freelances from './'
 
@@ -27,12 +28,28 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('Should display freelancers names', async () => {
+test('Should display freelancers names after loader is removed', async () => {
   render(<Freelances />)
 
-  screen.getByTestId('loader')
-  await waitFor(() => {
-    screen.getByText('Harry Potter')
-    screen.getByText('Hermione Granger')
-  })
+  await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
+  expect(screen.getByText('Harry Potter')).toBeInTheDocument()
+  expect(screen.getByText('Hermione Granger')).toBeInTheDocument()
+  expect(screen.queryByTestId('loader')).not.toBeInTheDocument()
+})
+
+test('Should display error', async () => {
+  render(<Freelances />)
+
+  server.use(
+    rest.get('http://localhost:8000/freelances', (req, res, ctx) => {
+      return res(
+        ctx.status(500),
+        ctx.json({ message: 'Internal server error' })
+      )
+    })
+  )
+
+  await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
+
+  // screen.getByText('Internal server error')
 })
