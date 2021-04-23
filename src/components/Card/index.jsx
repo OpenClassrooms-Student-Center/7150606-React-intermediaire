@@ -44,7 +44,7 @@ function Card({ label, title, picture }) {
   const { theme } = useTheme()
 
   return (
-    <CardWrapper theme={theme}>
+    <CardWrapper theme={theme} data-testid="yes">
       <CardLabel theme={theme}>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" />
       <CardTitle theme={theme}>{title}</CardTitle>
