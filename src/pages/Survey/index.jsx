@@ -34,7 +34,8 @@ const LinkWrapper = styled.div`
   }
 `
 
-const ReplyBox = styled.div`
+const ReplyBox = styled.button`
+  border: none;
   height: 100px;
   width: 300px;
   display: flex;
@@ -83,11 +84,13 @@ function Survey() {
     <SurveyContainer>
       <QuestionTitle theme={theme}>Question {questionNumber}</QuestionTitle>
       {isLoading ? (
-        <Loader />
+        <Loader data-testid="loader" />
       ) : (
-        <QuestionContent theme={theme}>
-          {surveyData[questionNumber]}
-        </QuestionContent>
+        surveyData && (
+          <QuestionContent theme={theme} data-testid="question-content">
+            {surveyData[questionNumber]}
+          </QuestionContent>
+        )
       )}
       <ReplyWrapper>
         <ReplyBox
