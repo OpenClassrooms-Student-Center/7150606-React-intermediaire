@@ -32,7 +32,8 @@ const LinkWrapper = styled.div`
   }
 `
 
-const ReplyBox = styled.div`
+const ReplyBox = styled.button`
+  border: none;
   height: 100px;
   width: 300px;
   display: flex;
