@@ -87,20 +87,22 @@ function Survey() {
       ) : (
         <QuestionContent>{surveyData[questionNumber]}</QuestionContent>
       )}
-      <ReplyWrapper>
-        <ReplyBox
-          onClick={() => saveReply(true)}
-          isSelected={results[questionNumber] === true}
-        >
-          Oui
-        </ReplyBox>
-        <ReplyBox
-          onClick={() => saveReply(false)}
-          isSelected={results[questionNumber] === false}
-        >
-          Non
-        </ReplyBox>
-      </ReplyWrapper>
+      {results && (
+        <ReplyWrapper>
+          <ReplyBox
+            onClick={() => saveReply(true)}
+            isSelected={results[questionNumber] === true}
+          >
+            Oui
+          </ReplyBox>
+          <ReplyBox
+            onClick={() => saveReply(false)}
+            isSelected={results[questionNumber] === false}
+          >
+            Non
+          </ReplyBox>
+        </ReplyWrapper>
+      )}
       <LinkWrapper>
         <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
         {surveyData[questionNumberInt + 1] ? (
