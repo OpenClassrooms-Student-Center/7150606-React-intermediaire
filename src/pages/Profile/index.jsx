@@ -97,10 +97,10 @@ class Profile extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
 
-    fetch(`http://localhost:8000/profile?id=${id}`)
+    fetch(`http://localhost:8000/freelance?id=${id}`)
       .then((response) => response.json())
       .then((jsonResponse) => {
-        this.setState({ profileData: jsonResponse?.profileData })
+        this.setState({ profileData: jsonResponse?.freelanceData })
       })
   }
 
