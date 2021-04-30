@@ -91,10 +91,10 @@ function Profile() {
   const { id: queryId } = useParams()
   const [profileData, setProfileData] = useState({})
   useEffect(() => {
-    fetch(`http://localhost:8000/profile?id=${queryId}`)
+    fetch(`http://localhost:8000/freelance?id=${queryId}`)
       .then((response) => response.json())
       .then((jsonResponse) => {
-        setProfileData(jsonResponse?.profileData)
+        setProfileData(jsonResponse?.freelanceData)
       })
   }, [queryId])
 
@@ -108,6 +108,7 @@ function Profile() {
     available,
     id,
   } = profileData
+
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (
