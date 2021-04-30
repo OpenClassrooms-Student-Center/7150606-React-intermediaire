@@ -25,6 +25,7 @@ const ProfileDetails = styled.div`
 const Picture = styled.img`
   height: 150px;
   width: 150px;
+  border-radius: 75px;
 `
 
 const Title = styled.h1`
