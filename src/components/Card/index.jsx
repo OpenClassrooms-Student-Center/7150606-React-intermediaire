@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { Component } from 'react'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
-import { useTheme } from '../../utils/hooks'
 import DefaultPicture from '../../assets/profile.png'
 
 const CardLabel = styled.span`
@@ -44,32 +43,39 @@ const CardWrapper = styled.div`
   }
 `
 
-function Card({ label, title, picture }) {
-  const { theme } = useTheme()
-  const [isFavorite, setIsFavorite] = useState(false)
-  const star = isFavorite ? '⭐️' : ''
+class Card extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isFavorite: false,
+    }
+  }
 
-  return (
-    <CardWrapper theme={theme} onClick={() => setIsFavorite(!isFavorite)}>
-      <CardLabel theme={theme}>{label}</CardLabel>
-      <CardImage src={picture} alt="freelance" />
-      <CardTitle theme={theme}>
-        {star} {title} {star}
-      </CardTitle>
-    </CardWrapper>
-  )
+  render() {
+    const { theme, picture, label, title } = this.props
+
+    return (
+      <CardWrapper theme={theme} onClick={this.setFavorite}>
+        <CardLabel theme={theme}>{label}</CardLabel>
+        <CardImage src={picture} alt="freelance" />
+        <CardTitle theme={theme}>{title}</CardTitle>
+      </CardWrapper>
+    )
+  }
 }
 
 Card.propTypes = {
   label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired,
 }
 
 Card.defaultProps = {
   label: '',
   title: '',
   picture: DefaultPicture,
+  theme: 'light',
 }
 
 export default Card

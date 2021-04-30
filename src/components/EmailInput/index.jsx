@@ -16,7 +16,7 @@ const StyledInput = styled.input`
   border: none;
   color: ${({ theme }) => (theme === 'light' ? colors.dark : 'white')};
   background-color: transparent;
-  border-bottom: 2px solid
+  border-bottom: 1px solid
     ${({ theme }) => (theme === 'light' ? colors.dark : 'white')};
   margin-top: 5px;
   margin-bottom: 15px;
