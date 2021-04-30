@@ -11,10 +11,10 @@ class Profile extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
 
-    fetch(`http://localhost:8000/profile?id=${id}`)
+    fetch(`http://localhost:8000/freelance?id=${id}`)
       .then((response) => response.json())
       .then((jsonResponse) => {
-        this.setState({ profileData: jsonResponse?.profileData })
+        this.setState({ profileData: jsonResponse?.freelanceData })
       })
   }
 
@@ -32,7 +32,7 @@ class Profile extends Component {
     } = profileData
     return (
       <div>
-        <img src={picture} alt={name} />
+        <img src={picture} alt={name} height={150} width={150} />
         <h1>{name}</h1>
         <span>{location}</span>
         <h2>{job}</h2>
