@@ -63,10 +63,10 @@ function Survey() {
   const nextQuestionNumber = questionNumberInt + 1
   const [surveyData, setSurveyData] = useState({})
   const [isDataLoading, setDataLoading] = useState(false)
-  const { saveResults, results } = useContext(SurveyContext)
+  const { answers, saveAnswers } = useContext(SurveyContext)
 
   function saveReply(answer) {
-    saveResults({ [questionNumber]: answer })
+    saveAnswers({ [questionNumber]: answer })
   }
 
   useEffect(() => {
@@ -90,13 +90,13 @@ function Survey() {
       <ReplyWrapper>
         <ReplyBox
           onClick={() => saveReply(true)}
-          isSelected={results[questionNumber] === true}
+          isSelected={answers[questionNumber] === true}
         >
           Oui
         </ReplyBox>
         <ReplyBox
           onClick={() => saveReply(false)}
-          isSelected={results[questionNumber] === false}
+          isSelected={answers[questionNumber] === false}
         >
           Non
         </ReplyBox>
