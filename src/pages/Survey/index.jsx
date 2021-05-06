@@ -40,7 +40,7 @@ function Survey() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    async function fetchFreelances() {
+    async function fetchSurvey() {
       setDataLoading(true)
       try {
         const response = await fetch(`http://localhost:8000/survey`)
@@ -52,7 +52,7 @@ function Survey() {
         setDataLoading(false)
       }
     }
-    fetchFreelances()
+    fetchSurvey()
   }, [])
 
   if (error) {
