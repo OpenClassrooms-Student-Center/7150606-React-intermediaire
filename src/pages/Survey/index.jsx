@@ -37,33 +37,27 @@ function Survey() {
   const nextQuestionNumber = questionNumberInt + 1
   const [surveyData, setSurveyData] = useState({})
   const [isDataLoading, setDataLoading] = useState(false)
-
-  // Cette syntaxe permet aussi bien de faire des calls API.
-  // Mais pour utiliser await dans une fonction, il faut que celle-ci soit async (pour asynchrone).
-  // Comme la fonction passée à useEffect ne peut pas être asynchrone,
-  // il faut utiliser une fonction qui est appelée dans useEffect et déclarée en dehors, comme ici 👇.
-  // Essayez de commenter le code créé dans le chapitre et de décommenter fetchData pour voir.
-
-  // async function fetchData() {
-  //   try {
-  //     const response = await fetch(`http://localhost:8000/survey`)
-  //     const { surveyData } = await response.json()
-  //     setSurveyData(surveyData)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    // fetchData()
-    setDataLoading(true)
-    fetch(`http://localhost:8000/survey`).then((response) =>
-      response.json().then(({ surveyData }) => {
+    async function fetchFreelances() {
+      setDataLoading(true)
+      try {
+        const response = await fetch(`http://localhost:8000/survey`)
+        const { surveyData } = await response.json()
         setSurveyData(surveyData)
+      } catch (err) {
+        setError(err)
+      } finally {
         setDataLoading(false)
-      })
-    )
+      }
+    }
+    fetchFreelances()
   }, [])
+
+  if (error) {
+    return <span>Oups il y a eu un problème</span>
+  }
 
   return (
     <SurveyContainer>
