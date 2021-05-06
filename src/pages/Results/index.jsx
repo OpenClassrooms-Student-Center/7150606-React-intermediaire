@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import { SurveyContext } from '../../utils/context'
 
 function Results() {
-  const { results } = useContext(SurveyContext)
-  console.log(results)
+  const { answers } = useContext(SurveyContext)
+  console.log(answers)
 
   return (
     <div>
