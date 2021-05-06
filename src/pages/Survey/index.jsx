@@ -63,22 +63,32 @@ function Survey() {
   const nextQuestionNumber = questionNumberInt + 1
   const [surveyData, setSurveyData] = useState({})
   const [isDataLoading, setDataLoading] = useState(false)
-  const { saveResults, results } = useContext(SurveyContext)
+  const { saveAnswers, answers } = useContext(SurveyContext)
+  const [error, setError] = useState(false)
 
   function saveReply(answer) {
-    saveResults({ [questionNumber]: answer })
+    saveAnswers({ [questionNumber]: answer })
   }
 
   useEffect(() => {
-    setDataLoading(true)
-    fetch(`http://localhost:8000/survey`).then((response) =>
-      response.json().then(({ surveyData }) => {
+    async function fetchSurvey() {
+      setDataLoading(true)
+      try {
+        const response = await fetch(`http://localhost:8000/survey`)
+        const { surveyData } = await response.json()
         setSurveyData(surveyData)
+      } catch (err) {
+        setError(err)
+      } finally {
         setDataLoading(false)
-      })
-    )
+      }
+    }
+    fetchSurvey()
   }, [])
 
+  if (error) {
+    return <span>Oups il y a eu un problème</span>
+  }
   return (
     <SurveyContainer>
       <QuestionTitle>Question {questionNumber}</QuestionTitle>
@@ -87,17 +97,17 @@ function Survey() {
       ) : (
         <QuestionContent>{surveyData[questionNumber]}</QuestionContent>
       )}
-      {results && (
+      {answers && (
         <ReplyWrapper>
           <ReplyBox
             onClick={() => saveReply(true)}
-            isSelected={results[questionNumber] === true}
+            isSelected={answers[questionNumber] === true}
           >
             Oui
           </ReplyBox>
           <ReplyBox
             onClick={() => saveReply(false)}
-            isSelected={results[questionNumber] === false}
+            isSelected={answers[questionNumber] === false}
           >
             Non
           </ReplyBox>
