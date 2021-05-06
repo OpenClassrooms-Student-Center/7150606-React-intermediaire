@@ -69,12 +69,11 @@ function Survey() {
     saveAnswers({ [questionNumber]: answer })
   }
 
-  const { data = {}, isLoading, error } = useFetch(
-    `http://localhost:8000/survey`
-  )
+  const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
+  const { surveyData } = data
 
   if (error) {
-    return <pre>{error}</pre>
+    return <span>Il y a un problème</span>
   }
 
   return (
@@ -83,7 +82,9 @@ function Survey() {
       {isLoading ? (
         <Loader />
       ) : (
-        <QuestionContent>{data[questionNumber]}</QuestionContent>
+        <QuestionContent>
+          {surveyData && surveyData[questionNumber]}
+        </QuestionContent>
       )}
       <ReplyWrapper>
         <ReplyBox
@@ -101,7 +102,7 @@ function Survey() {
       </ReplyWrapper>
       <LinkWrapper>
         <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
-        {data[questionNumberInt + 1] ? (
+        {surveyData && surveyData[questionNumberInt + 1] ? (
           <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
         ) : (
           <Link to="/results">Résultats</Link>
