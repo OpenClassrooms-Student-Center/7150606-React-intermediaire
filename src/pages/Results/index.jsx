@@ -78,19 +78,18 @@ function Results() {
   const { data, isLoading, error } = useFetch(
     `http://localhost:8000/results?${fetchParams}`
   )
+
   if (error) {
-    return <pre>{error}</pre>
-  } else if (isLoading) {
-    return (
-      <LoaderWrapper>
-        <Loader />
-      </LoaderWrapper>
-    )
+    return <span>Il y a un problème</span>
   }
 
   const resultsData = data?.resultsData
 
-  return (
+  return isLoading ? (
+    <LoaderWrapper>
+      <Loader />
+    </LoaderWrapper>
+  ) : (
     <ResultsContainer theme={theme}>
       <ResultsTitle theme={theme}>
         Les compétences dont vous avez besoin :
