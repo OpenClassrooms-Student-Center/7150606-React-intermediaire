@@ -44,7 +44,7 @@ function Freelances() {
   const freelancersList = data?.freelancersList
 
   if (error) {
-    return <pre>{error}</pre>
+    return <span>Il y a un problème</span>
   }
 
   return (
