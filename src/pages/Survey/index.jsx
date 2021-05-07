@@ -88,7 +88,7 @@ function Survey() {
       ) : (
         surveyData && (
           <QuestionContent theme={theme} data-testid="question-content">
-            {surveyData[questionNumber]}
+            {surveyData && surveyData[questionNumber]}
           </QuestionContent>
         )
       )}
