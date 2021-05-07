@@ -43,7 +43,7 @@ function Freelances() {
   const freelancersList = data?.freelancersList
 
   if (error) {
-    return <pre>{error}</pre>
+    return <span>Il y a un problème</span>
   }
 
   return (
@@ -64,6 +64,7 @@ function Freelances() {
               label={profile.job}
               title={profile.name}
               picture={profile.picture}
+              theme={theme}
             />
           ))}
         </CardsContainer>
