@@ -77,7 +77,7 @@ function Survey() {
   const surveyData = data?.surveyData
 
   if (error) {
-    return <pre>{error}</pre>
+    return <span>Oups il y a eu un problème</span>
   }
 
   return (
