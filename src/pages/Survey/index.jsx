@@ -86,11 +86,9 @@ function Survey() {
       {isLoading ? (
         <Loader data-testid="loader" />
       ) : (
-        surveyData && (
-          <QuestionContent theme={theme} data-testid="question-content">
-            {surveyData && surveyData[questionNumber]}
-          </QuestionContent>
-        )
+        <QuestionContent theme={theme} data-testid="question-content">
+          {surveyData && surveyData[questionNumber]}
+        </QuestionContent>
       )}
       <ReplyWrapper>
         <ReplyBox
