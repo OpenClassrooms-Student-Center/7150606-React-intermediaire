@@ -40,6 +40,9 @@ function Freelances() {
     `http://localhost:8000/freelances`
   )
 
+  // Ici le "?" permet de s'assurer que data existe bien.
+  // Vous pouvez en apprendre davantage sur cette notation ici :
+  // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Optional_chaining
   const freelancersList = data?.freelancersList
 
   if (error) {
