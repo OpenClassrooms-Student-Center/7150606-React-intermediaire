@@ -34,17 +34,28 @@ const LoaderWrapper = styled.div`
 
 function Freelances() {
   const [isDataLoading, setDataLoading] = useState(false)
+  const [error, setError] = useState(false)
   const [freelancersList, setFreelancesList] = useState([])
 
   useEffect(() => {
-    setDataLoading(true)
-    fetch(`http://localhost:8000/freelances`).then((response) =>
-      response.json().then(({ freelancersList }) => {
+    async function fetchFreelances() {
+      setDataLoading(true)
+      try {
+        const response = await fetch(`http://localhost:8000/freelances`)
+        const { freelancersList } = await response.json()
         setFreelancesList(freelancersList)
+      } catch (err) {
+        setError(err)
+      } finally {
         setDataLoading(false)
-      })
-    )
+      }
+    }
+    fetchFreelances()
   }, [])
+
+  if (error) {
+    return <span>Oups il y a eu un problème</span>
+  }
 
   return (
     <div>
