@@ -87,7 +87,7 @@ function Survey() {
         <Loader />
       ) : (
         <QuestionContent theme={theme}>
-          {surveyData[questionNumber]}
+          {surveyData && surveyData[questionNumber]}
         </QuestionContent>
       )}
       <ReplyWrapper>
