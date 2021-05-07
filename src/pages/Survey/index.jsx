@@ -58,6 +58,7 @@ function Survey() {
   if (error) {
     return <span>Oups il y a eu un problème</span>
   }
+
   return (
     <SurveyContainer>
       <QuestionTitle>Question {questionNumber}</QuestionTitle>
