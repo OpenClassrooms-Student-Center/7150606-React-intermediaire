@@ -1,12 +1,12 @@
-import { getJobTitle } from './'
+import { formatJobList } from './'
 
-describe('The getJobTitle function', () => {
-  test('should add a comma to a word', () => {
+describe('The formatJobList function', () => {
+  it('should add a comma to a word', () => {
     const expectedState = 'item2,'
-    expect(getJobTitle('item2', 3, 1)).toEqual(expectedState)
+    expect(formatJobList('item2', 3, 1)).toEqual(expectedState)
   })
-  test('should not add a comma to the last element of the list', () => {
+  it('should not add a comma to the last element of the list', () => {
     const expectedState = 'item3'
-    expect(getJobTitle('item3', 3, 2)).toEqual(expectedState)
+    expect(formatJobList('item3', 3, 2)).toEqual(expectedState)
   })
 })
