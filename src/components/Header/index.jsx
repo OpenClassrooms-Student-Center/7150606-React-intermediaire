@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
-import WhiteLogo from '../../assets/white-logo.svg'
-import BlackLogo from '../../assets/black-logo.svg'
+import LightLogo from '../../assets/light-logo.png'
+import DarkLogo from '../../assets/dark-logo.png'
 import { useTheme } from '../../utils/hooks'
 
 const HomeLogo = styled.img`
@@ -21,7 +21,7 @@ function Header() {
   return (
     <NavContainer>
       <Link to="/">
-        <HomeLogo src={theme === 'light' ? BlackLogo : WhiteLogo} />
+        <HomeLogo src={theme === 'light' ? DarkLogo : LightLogo} />
       </Link>
       <div>
         <StyledLink $theme={theme} to="/">
