@@ -13,6 +13,7 @@ const NavContainer = styled.nav`
   padding: 30px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 function Header() {
