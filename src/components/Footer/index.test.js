@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { ThemeProvider } from '../../utils/context'
 
 describe('Footer', () => {
-  test('Should render without crashing', async () => {
+  it('Should render without crashing', async () => {
     render(
       <ThemeProvider>
         <Footer />
@@ -11,7 +11,7 @@ describe('Footer', () => {
     )
   })
 
-  test('Should change theme', async () => {
+  it('Should change theme', async () => {
     render(
       <ThemeProvider>
         <Footer />
