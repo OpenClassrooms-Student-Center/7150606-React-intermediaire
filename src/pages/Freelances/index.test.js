@@ -27,7 +27,7 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('Should display freelancers names', async () => {
+it('Should display freelancers names', async () => {
   render(<Freelances />)
 
   screen.getByTestId('loader')
