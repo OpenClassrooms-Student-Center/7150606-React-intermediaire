@@ -52,7 +52,7 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `
 
-function getFetchParams(answers) {
+export function getFetchParams(answers) {
   const answerNumbers = Object.keys(answers)
 
   return answerNumbers.reduce((previousParams, answerNumber, index) => {
@@ -62,7 +62,7 @@ function getFetchParams(answers) {
   }, '')
 }
 
-export function getJobTitle(title, listLength, index) {
+export function formatJobList(title, listLength, index) {
   if (index === listLength - 1) {
     return title
   } else {
@@ -100,7 +100,7 @@ function Results() {
               key={`result-title-${index}-${result.title}`}
               theme={theme}
             >
-              {getJobTitle(result.title, resultsData.length, index)}
+              {formatJobList(result.title, resultsData.length, index)}
             </JobTitle>
           ))}
       </ResultsTitle>
