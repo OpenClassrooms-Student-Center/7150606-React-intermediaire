@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 function Survey() {
-  const { questionNumber } = useParams()
+  const { questionNumber } = useParams<Record<string, string>>()
   const questionNumberInt = parseInt(questionNumber)
   const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
   const nextQuestionNumber = questionNumberInt + 1
