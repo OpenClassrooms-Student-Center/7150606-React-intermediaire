@@ -28,7 +28,7 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('Should display freelancers names after loader is removed', async () => {
+it('Should display freelancers names after loader is removed', async () => {
   render(<Freelances />)
 
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
@@ -37,7 +37,7 @@ test('Should display freelancers names after loader is removed', async () => {
   expect(screen.queryByTestId('loader')).not.toBeInTheDocument()
 })
 
-test('Should display error', async () => {
+it('Should display error', async () => {
   render(<Freelances />)
 
   server.use(
@@ -50,6 +50,4 @@ test('Should display error', async () => {
   )
 
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
-
-  // screen.getByText('Internal server error')
 })
