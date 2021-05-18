@@ -4,7 +4,7 @@ import { StyledLink } from '../../utils/style/Atoms'
 import DarkLogo from '../../assets/dark-logo.png'
 
 const HomeLogo = styled.img`
-  height: 40px;
+  height: 70px;
 `
 
 const NavContainer = styled.nav`
