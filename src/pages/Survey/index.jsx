@@ -40,20 +40,27 @@ function Survey() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    async function fetchSurvey() {
-      setDataLoading(true)
-      try {
-        const response = await fetch(`http://localhost:8000/survey`)
-        const { surveyData } = await response.json()
+    // async function fetchSurvey() {
+    //   setDataLoading(true)
+    //   try {
+    //     const response = await fetch(`http://localhost:8000/survey`)
+    //     const { surveyData } = await response.json()
+    //     setSurveyData(surveyData)
+    //   } catch (err) {
+    //     console.log(err)
+    //     setError(err)
+    //   } finally {
+    //     setDataLoading(false)
+    //   }
+    // }
+    // fetchSurvey()
+    setDataLoading(true)
+    fetch(`http://localhost:8000/survey`)
+      .then((response) => response.json())
+      .then(({ surveyData }) => {
         setSurveyData(surveyData)
-      } catch (err) {
-        console.log(err)
-        setError(err)
-      } finally {
         setDataLoading(false)
-      }
-    }
-    fetchSurvey()
+      })
   }, [])
 
   if (error) {
