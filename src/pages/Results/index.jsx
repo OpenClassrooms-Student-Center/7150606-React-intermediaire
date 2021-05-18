@@ -53,7 +53,7 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `
 
-function getFetchParams(answers) {
+function formatFetchParams(answers) {
   const answerNumbers = Object.keys(answers)
 
   return answerNumbers.reduce((previousParams, answerNumber, index) => {
@@ -66,7 +66,7 @@ function getFetchParams(answers) {
 function Results() {
   const { theme } = useContext(ThemeContext)
   const { answers } = useContext(SurveyContext)
-  const fetchParams = getFetchParams(answers)
+  const fetchParams = formatFetchParams(answers)
 
   const { data, isLoading, error } = useFetch(
     `http://localhost:8000/results?${fetchParams}`
