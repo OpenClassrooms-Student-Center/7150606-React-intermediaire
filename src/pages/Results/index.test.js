@@ -1,4 +1,4 @@
-import Results, { getFetchParams, formatJobList } from './'
+import Results, { formatFetchParams, formatJobList } from './'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { waitForElementToBeRemoved, screen } from '@testing-library/react'
@@ -15,14 +15,14 @@ describe('The formatJobList function', () => {
   })
 })
 
-describe('The getFetchParams function', () => {
+describe('The formatFetchParams function', () => {
   it('should use the right format for param', () => {
     const expectedState = 'a1=answer1'
-    expect(getFetchParams({ 1: 'answer1' })).toEqual(expectedState)
+    expect(formatFetchParams({ 1: 'answer1' })).toEqual(expectedState)
   })
   it('should concatenate params with an &', () => {
     const expectedState = 'a1=answer1&a2=answer2'
-    expect(getFetchParams({ 1: 'answer1', 2: 'answer2' })).toEqual(
+    expect(formatFetchParams({ 1: 'answer1', 2: 'answer2' })).toEqual(
       expectedState
     )
   })
