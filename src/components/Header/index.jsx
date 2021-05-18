@@ -6,7 +6,7 @@ import DarkLogo from '../../assets/dark-logo.png'
 import { useTheme } from '../../utils/hooks'
 
 const HomeLogo = styled.img`
-  height: 40px;
+  height: 70px;
 `
 
 const NavContainer = styled.nav`
