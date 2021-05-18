@@ -1,24 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from './pages/Home'
-import Survey from './pages/Survey'
-import Header from './components/Header'
-import Error from './components/Error'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import User from './user'
+import Admin from './admin'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Header />
+      <nav style={{ display: 'flex', flexDirection: 'column' }}>
+        <h2>Liens admin</h2>
+        <Link to="/admin/dashboard">Dashboard (admin)</Link>
+        <Link to="/admin/settings">Paramètres (admin)</Link>
+        <Link to="/admin/money">Argent (admin)</Link>
+        <h2>Liens user</h2>
+        <Link to="/user/cart">Panier (user)</Link>
+      </nav>
       <Switch>
-        <Route exact path="/">
-          <Home />
+        <Route path="/admin">
+          <Admin />
         </Route>
-        <Route path="/survey/:questionNumber">
-          <Survey />
-        </Route>
-        <Route>
-          <Error />
+        <Route path="/user">
+          <User />
         </Route>
       </Switch>
     </Router>
