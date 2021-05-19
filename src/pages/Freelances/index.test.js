@@ -1,6 +1,10 @@
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import { waitFor, screen } from '@testing-library/react'
+import {
+  waitFor,
+  waitForElementToBeRemoved,
+  screen,
+} from '@testing-library/react'
 import { render } from '../../utils/test'
 import Freelances from './'
 
@@ -30,7 +34,7 @@ afterAll(() => server.close())
 it('Should display freelancers names', async () => {
   render(<Freelances />)
 
-  screen.getByTestId('loader')
+  await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
   await waitFor(() => {
     screen.getByText('Harry Potter')
     screen.getByText('Hermione Granger')
