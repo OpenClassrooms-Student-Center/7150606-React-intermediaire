@@ -50,10 +50,10 @@ function Home() {
     <HomeWrapper>
       <HomerContainer theme={theme}>
         <LeftCol>
-          <button onClick={() => setDisplay(!display)}>
-            Afficher ou cacher
-          </button>
           {display && <MyComponent />}
+          <button onClick={() => setDisplay(!display)}>
+            {display ? 'Cacher' : 'Afficher'} mon composant
+          </button>
           <StyledTitle theme={theme}>
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
             talents

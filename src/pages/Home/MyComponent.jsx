@@ -1,19 +1,33 @@
 import { Component } from 'react'
 
 export default class MyComponent extends Component {
+  componentDidMount() {
+    console.log('===== 🛠componentDidMount🛠 =====')
+    this.setState({ test: '' })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('===== 🔄componentDidUpdate🔄 =====')
+  }
+
   componentWillUnmount() {
     console.log('===== 💀componentWillUnmount💀 =====')
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('===== 🔄componentDidUpdate =====')
-  }
-  componentDidMount() {
-    console.log('=== 🛠componentDidMount🛠 ===')
-    this.setState({ test: 'mon test' })
-  }
   render() {
-    console.log('=== ✨render✨ ===')
-    return <div>Mon composant</div>
+    console.log('===== ✨render✨ =====')
+
+    return (
+      <div
+        style={{
+          backgroundColor: 'red',
+          height: 30,
+          marginBottom: 20,
+          textAlign: 'center',
+        }}
+      >
+        Mon composant 🤖
+      </div>
+    )
   }
 }
