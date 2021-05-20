@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import styled from 'styled-components'
+import MyComponent from './MyComponent'
 import colors from '../../utils/style/colors'
 import { StyledLink } from '../../utils/style/Atoms'
 import { useTheme } from '../../utils/hooks'
@@ -42,11 +44,16 @@ const Illustration = styled.img`
 
 function Home() {
   const { theme } = useTheme()
+  const [display, setDisplay] = useState(true)
 
   return (
     <HomeWrapper>
       <HomerContainer theme={theme}>
         <LeftCol>
+          <button onClick={() => setDisplay(!display)}>
+            Afficher ou cacher
+          </button>
+          {display && <MyComponent />}
           <StyledTitle theme={theme}>
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
             talents
