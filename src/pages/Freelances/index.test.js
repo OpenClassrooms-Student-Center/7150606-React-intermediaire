@@ -5,6 +5,7 @@ import {
   waitForElementToBeRemoved,
   screen,
 } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import { render } from '../../utils/test'
 import Freelances from './'
 
@@ -36,7 +37,7 @@ it('Should display freelancers names', async () => {
 
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
   await waitFor(() => {
-    screen.getByText('Harry Potter')
-    screen.getByText('Hermione Granger')
+    expect(screen.getByText('Harry Potter')).toBeInTheDocument()
+    expect(screen.getByText('Hermione Granger')).toBeInTheDocument()
   })
 })
