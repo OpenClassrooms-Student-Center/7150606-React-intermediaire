@@ -30,9 +30,9 @@ afterAll(() => server.close())
 test('Should display freelancers names', async () => {
   render(<Freelances />)
 
-  screen.getByTestId('loader')
+  expect(screen.getByTestId('loader')).toBeTruthy()
   await waitFor(() => {
-    screen.getByText('Harry Potter')
-    screen.getByText('Hermione Granger')
+    expect(screen.getByText('Harry Potter')).toBeTruthy()
+    expect(screen.getByText('Hermione Granger')).toBeTruthy()
   })
 })
