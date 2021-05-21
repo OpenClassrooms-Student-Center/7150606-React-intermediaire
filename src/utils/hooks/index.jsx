@@ -12,10 +12,14 @@ export function useFetch(url) {
     async function fetchData() {
       try {
         const response = await fetch(url)
+        if (response.status !== 'ok') {
+          const { errorMessage } = await response.json()
+          setError(errorMessage)
+        }
         const data = await response.json()
         setData(data)
       } catch (err) {
-        setError(true)
+        console.log('===== err =====', err)
       } finally {
         setLoading(false)
       }

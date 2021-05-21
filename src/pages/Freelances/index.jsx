@@ -43,7 +43,7 @@ function Freelances() {
   const freelancersList = data?.freelancersList
 
   if (error) {
-    return <span>Il y a un problème</span>
+    return <span data-testid="error">{error}</span>
   }
 
   return (
