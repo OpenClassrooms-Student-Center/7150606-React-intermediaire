@@ -52,7 +52,7 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `
 
-function formatFetchParams(answers) {
+function formatQueryParams(answers) {
   const answerNumbers = Object.keys(answers)
 
   return answerNumbers.reduce((previousParams, answerNumber, index) => {
@@ -72,7 +72,7 @@ export function formatJobList(title, listLength, index) {
 function Results() {
   const { theme } = useTheme()
   const { answers } = useContext(SurveyContext)
-  const fetchParams = formatFetchParams(answers)
+  const fetchParams = formatQueryParams(answers)
 
   const { data, isLoading, error } = useFetch(
     `http://localhost:8000/results?${fetchParams}`
