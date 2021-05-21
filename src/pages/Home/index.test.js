@@ -4,7 +4,7 @@ import Home from './'
 import { ThemeProvider } from '../../utils/context'
 
 describe('The Home component', () => {
-  it('should display the link to the survey', () => {
+  it('should render title', () => {
     render(
       <MemoryRouter>
         <ThemeProvider>
@@ -12,12 +12,6 @@ describe('The Home component', () => {
         </ThemeProvider>
       </MemoryRouter>
     )
-
-    // screen.getByText('Je ne sais plus')
-    screen.debug()
-    // expect(screen.getByText(
-    //   'Repérez vos besoins, on s’occupe du reste, avec les meilleurs talents'
-    // )).toBeTruthy()
     expect(
       screen.getByRole('heading', {
         level: 2,
