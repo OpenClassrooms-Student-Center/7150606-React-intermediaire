@@ -1,35 +1,69 @@
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import { screen, waitForElementToBeRemoved } from '@testing-library/react'
+import {
+  screen,
+  waitForElementToBeRemoved,
+  waitFor,
+} from '@testing-library/react'
 import { render } from '../../utils/test'
 import Freelances from './'
+// import '@testing-library/jest-dom/extend-expect'
 
-const errorServer = setupServer(
+const freelancersMockedData = [
+  {
+    name: 'Harry Potter',
+    job: 'Magicien frontend',
+    picture: '',
+  },
+  {
+    name: 'Hermione Granger',
+    job: 'Magicienne fullstack',
+    picture: '',
+  },
+]
+
+const server = setupServer(
   rest.get('http://localhost:8000/freelances', (req, res, ctx) => {
     return res(
-      ctx.status(500),
-      ctx.json({
-        errorMessage: `Oups il y a eu une erreur dans l'API`,
-      })
+      ctx.status(200),
+      ctx.json({ freelancersList: freelancersMockedData })
     )
   })
 )
 
-beforeAll(() => errorServer.listen())
-afterEach(() => errorServer.resetHandlers())
-afterAll(() => errorServer.close())
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 
-test('Should display error', async () => {
+it('Should display freelancers names', async () => {
   render(<Freelances />)
 
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
 
-  screen.debug()
-  expect(screen.getByTestId('error-message')).toMatchInlineSnapshot(`
-    <span
-      data-testid="error"
-    >
-      Oups il y a eu une erreur dans l'API
-    </span>
-  `)
+  await waitFor(() => {
+    expect(screen.getByText('Harry Potter')).toBeTruthy()
+    // expect(screen.getByText('Hermione Granger')).toBeInTheDocument()
+  })
 })
+
+// it('Should display error content', async () => {
+//   server.use(
+//     rest.get('http://localhost:8000/freelances', (req, res, ctx) => {
+//       return res.once(
+//         ctx.status(500),
+//         ctx.json({
+//           errorMessage: `Oups il y a eu une erreur dans l'API`,
+//         })
+//       )
+//     })
+//   )
+//   render(<Freelances />)
+//   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
+//   expect(screen.getByTestId('error')).toMatchInlineSnapshot(`
+//     <span
+//       data-testid="error"
+//     >
+//       Oups il y a eu une erreur dans l'API
+//     </span>
+//   `)
+// })
