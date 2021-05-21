@@ -53,12 +53,12 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `
 
-function formatFetchParams(answers) {
+function formatQueryParams(answers) {
   const answerNumbers = Object.keys(answers)
 
   return answerNumbers.reduce((previousParams, answerNumber, index) => {
-    const isFirstParam = index === 0
-    const separator = isFirstParam ? '' : '&'
+    const isFirstAnswer = index === 0
+    const separator = isFirstAnswer ? '' : '&'
     return `${previousParams}${separator}a${answerNumber}=${answers[answerNumber]}`
   }, '')
 }
@@ -66,11 +66,10 @@ function formatFetchParams(answers) {
 function Results() {
   const { theme } = useContext(ThemeContext)
   const { answers } = useContext(SurveyContext)
-  const fetchParams = formatFetchParams(answers)
+  const queryParams = formatQueryParams(answers)
 
   const { data, isLoading, error } = useFetch(
-    `http://localhost:8000/results?${fetchParams}`
-    // `http://localhost:8000/results?a1=0&a2=1&a3=0`
+    `http://localhost:8000/results?${queryParams}`
   )
 
   console.log('===== data =====', data)
