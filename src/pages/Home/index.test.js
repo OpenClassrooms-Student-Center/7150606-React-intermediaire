@@ -15,13 +15,15 @@ describe('The Home component', () => {
 
     // screen.getByText('Je ne sais plus')
     screen.debug()
-    // screen.getByText(
+    // expect(screen.getByText(
     //   'Repérez vos besoins, on s’occupe du reste, avec les meilleurs talents'
-    // )
-    screen.getByRole('heading', {
-      level: 2,
-      text:
-        'Repérez vos besoins, on s’occupe du reste, avec les meilleurs talents',
-    })
+    // )).toBeTruthy()
+    expect(
+      screen.getByRole('heading', {
+        level: 2,
+        text:
+          'Repérez vos besoins, on s’occupe du reste, avec les meilleurs talents',
+      })
+    ).toBeTruthy()
   })
 })
