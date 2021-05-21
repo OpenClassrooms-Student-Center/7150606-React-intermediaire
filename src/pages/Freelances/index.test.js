@@ -7,6 +7,7 @@ import {
 } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { render } from '../../utils/test'
+import { ThemeProvider } from '../../utils/context'
 import Freelances from './'
 
 const freelancersMockedData = [
@@ -33,7 +34,11 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 it('Should display freelancers names', async () => {
-  render(<Freelances />)
+  render(
+    <ThemeProvider>
+      <Freelances />
+    </ThemeProvider>
+  )
 
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
   await waitFor(() => {
