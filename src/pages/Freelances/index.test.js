@@ -59,5 +59,5 @@ it('Should display error content', async () => {
   )
   render(<Freelances />)
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
-  screen.getByTestId('error')
+  expect(screen.getByTestId('error')).toMatchInlineSnapshot()
 })
