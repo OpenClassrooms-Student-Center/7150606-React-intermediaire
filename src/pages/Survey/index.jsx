@@ -47,7 +47,8 @@ function Survey() {
         const { surveyData } = await response.json()
         setSurveyData(surveyData)
       } catch (err) {
-        setError(err)
+        console.log(err)
+        setError(true)
       } finally {
         setDataLoading(false)
       }
