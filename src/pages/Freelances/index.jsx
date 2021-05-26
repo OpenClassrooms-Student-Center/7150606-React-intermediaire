@@ -45,7 +45,8 @@ function Freelances() {
         const { freelancersList } = await response.json()
         setFreelancesList(freelancersList)
       } catch (err) {
-        setError(err)
+        console.log(err)
+        setError(true)
       } finally {
         setDataLoading(false)
       }
