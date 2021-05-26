@@ -41,8 +41,7 @@ it('Should display freelancers names', async () => {
   )
 
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
-  await waitFor(() => {
-    expect(screen.getByText('Harry Potter')).toBeInTheDocument()
-    expect(screen.getByText('Hermione Granger')).toBeInTheDocument()
-  })
+
+  expect(screen.getByText('Harry Potter')).toBeInTheDocument()
+  expect(screen.getByText('Hermione Granger')).toBeInTheDocument()
 })
