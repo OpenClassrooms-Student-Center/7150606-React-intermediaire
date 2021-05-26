@@ -59,5 +59,11 @@ it('Should display error content', async () => {
   )
   render(<Freelances />)
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
-  expect(screen.getByTestId('error')).toMatchInlineSnapshot()
+  expect(screen.getByTestId('error')).toMatchInlineSnapshot(`
+    <span
+      data-testid="error"
+    >
+      Oups il y a eu une erreur dans l'API
+    </span>
+  `)
 })
