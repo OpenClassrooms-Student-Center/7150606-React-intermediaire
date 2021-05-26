@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { SurveyContext } from '../../utils/context'
 import styled from 'styled-components'
+import { SurveyContext } from '../../utils/context'
+import EmptyList from '../../components/EmptyList'
 import colors from '../../utils/style/colors'
 import { useFetch, useTheme } from '../../utils/hooks'
 import { StyledLink, Loader } from '../../utils/style/Atoms'
@@ -84,6 +85,10 @@ function Results() {
   }
 
   const resultsData = data?.resultsData
+
+  if (resultsData?.length < 1) {
+    return <EmptyList theme={theme} />
+  }
 
   return isLoading ? (
     <LoaderWrapper>
