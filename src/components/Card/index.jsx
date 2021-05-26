@@ -46,27 +46,17 @@ const CardWrapper = styled.div`
 class Card extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      isFavorite: false,
-    }
-  }
-
-  setFavorite = () => {
-    this.setState({ isFavorite: !this.state.isFavorite })
+    this.state = {}
   }
 
   render() {
     const { theme, picture, label, title } = this.props
-    const { isFavorite } = this.state
-    const star = isFavorite ? '⭐️' : ''
 
     return (
       <CardWrapper theme={theme} onClick={this.setFavorite}>
         <CardLabel theme={theme}>{label}</CardLabel>
         <CardImage src={picture} alt="freelance" />
-        <CardTitle theme={theme}>
-          {star} {title} {star}
-        </CardTitle>
+        <CardTitle theme={theme}>{title}</CardTitle>
       </CardWrapper>
     )
   }
