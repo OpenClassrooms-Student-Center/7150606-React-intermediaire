@@ -48,7 +48,7 @@ function Survey() {
     //     setSurveyData(surveyData)
     //   } catch (err) {
     //     console.log(err)
-    //     setError(err)
+    //     setError(true)
     //   } finally {
     //     setDataLoading(false)
     //   }
