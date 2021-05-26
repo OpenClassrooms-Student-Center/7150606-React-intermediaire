@@ -20,6 +20,7 @@ export function useFetch(url) {
           setData(data)
         }
       } catch (err) {
+        console.log(err.message)
         setError(err.message)
       } finally {
       }
