@@ -50,7 +50,8 @@ function Survey() {
   //     const { surveyData } = await response.json()
   //     setSurveyData(surveyData)
   //   } catch (error) {
-  //     console.log(error)
+  // console.log('===== error =====', error)
+  // setError(true)
   //   }
   // }
 
