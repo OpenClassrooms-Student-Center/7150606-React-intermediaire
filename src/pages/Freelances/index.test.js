@@ -38,20 +38,3 @@ it('Should display freelancers names after loader is removed', async () => {
   expect(screen.getByText('Hermione Granger')).toBeInTheDocument()
   expect(screen.queryByTestId('loader')).not.toBeInTheDocument()
 })
-
-it('Should display error', async () => {
-  render(<Freelances />)
-
-  server.use(
-    rest.get('http://localhost:8000/freelances', (req, res, ctx) => {
-      return res(
-        ctx.status(500),
-        ctx.json({ message: 'Internal server error' })
-      )
-    })
-  )
-
-  await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
-
-  // screen.getByText('Internal server error')
-})
