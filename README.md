@@ -38,4 +38,3 @@ Les exercices de cette partie se trouvent sur CodePen.
 | ------------------------------------------------------------------------------------------------------------- | ----- | -------- |
 | [Chapitre 1](https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete/7257571-apprivoisez-les-anciennes-syntaxes-de-react) | [Branche begin](https://github.com/OpenClassrooms-Student-Center/7150606-React-intermediaire/tree/P4C1-begin)     | [Branche solution](https://github.com/OpenClassrooms-Student-Center/7150606-React-intermediaire/tree/P4C1-solution)       |
 | [Chapitre 2](https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete/7257793-affichez-les-donnees-dune-api-dans-un-composant-classe) | [Branche begin](https://github.com/OpenClassrooms-Student-Center/7150606-React-intermediaire/tree/P4C2-begin) | [Branche solution](https://github.com/OpenClassrooms-Student-Center/7150606-React-intermediaire/tree/P4C2-solution) |
-|
