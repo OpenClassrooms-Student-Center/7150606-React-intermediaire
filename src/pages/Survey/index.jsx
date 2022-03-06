@@ -74,7 +74,7 @@ function Survey() {
     saveAnswers({ [questionNumber]: answer })
   }
   const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
-  const surveyData = data?.surveyData
+  const { surveyData } = data             // 'surveData = data?.surveyData'  re-arranged
 
   if (error) {
     return <span>Oups il y a eu un problème</span>
@@ -87,7 +87,7 @@ function Survey() {
         <Loader />
       ) : (
         <QuestionContent theme={theme}>
-          {surveyData[questionNumber]}
+          {surveyData && surveyData[questionNumber]}  // 'surveyData &&' forgotten
         </QuestionContent>
       )}
       <ReplyWrapper>
