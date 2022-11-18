@@ -1,7 +1,5 @@
-import "../../styles/Home.css"
+import '../../styles/Home.css'
 
-function Home() {
-
-}
+function Home() {}
 
 export default Home
