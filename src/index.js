@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Admin from './pages/Admin'
@@ -15,19 +15,19 @@ root.render(
   <React.StrictMode>
     <Router>
       <Header />{/* le layout Header s affiche sur toutes les routes*/}
-      <Switch>
-        {/*Ajouter la prop exact pour que home s affiche sur ce path exactement et non sur un path contenant "/" , 
+
+      {/*Ajouter la prop exact pour que home s affiche sur ce path exactement et non sur un path contenant "/" , 
 c'est a dire que home ne doit pas s afficher dans le path du composant Survey qui commence par "/"*/}
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/survey">
-          <Survey />
-        </Route>
-        <Route exact path="/admin">
-          <Admin />
-        </Route>
-      </Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/survey">
+        <Survey />
+      </Route>
+      <Route path="/admin">
+        <Admin />
+      </Route>
+
     </Router>
   </React.StrictMode>
 
