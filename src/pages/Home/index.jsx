@@ -2,7 +2,11 @@ import '../../styles/Home.css'
 
 function Home() {
 
-    return <div> Ceci est la page home du site</div>
+    return <div>
+        <h1>
+            Page d'accueil
+        </h1>
+    </div>
 }
 
 export default Home

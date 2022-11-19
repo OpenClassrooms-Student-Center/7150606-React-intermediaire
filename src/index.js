@@ -7,13 +7,14 @@ import reportWebVitals from './reportWebVitals'
 import './styles/index.css'
 
 
-//recatDom v18 ne supporte plus reactDom.render, il faut createRoot et root.render
+//ReactDOM v18 ne supporte plus ReactDOM.render, il faut createRoot et root.render
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Router>
-
-      <Route path="/">
+      {/*Ajouter la prop exact pour que home s affiche sur ce path exactement et non sur un path contenant "/" , 
+c'est a dire que home ne doit pas s afficher dans le path du composant Survey qui commence par "/"*/}
+      <Route exact path="/">
         <Home />
       </Route>
       <Route path="/survey">
