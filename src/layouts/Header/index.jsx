@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 
 function Header() {
+
     return (
-        <nav>
-            <Link to="/"> Accueil</Link>
-            <Link to="/survey"> Questionnaire</Link>
-        </nav>
+        <div>
+            <nav>
+                <ul>
+                    <li><Link to="/"> Accueil</Link></li>
+                    <li><Link to="/survey"> Questionnaire</Link></li>
+                </ul>
+
+            </nav>
+        </div>
     )
 }
 

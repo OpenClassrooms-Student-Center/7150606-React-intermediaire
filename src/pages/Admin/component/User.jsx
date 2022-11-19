@@ -1,6 +1,6 @@
 function Users() {
     return <div>
-        <h2> Adiministrateur-users</h2>
+        <h2> Paramètres-users</h2>
     </div>
 }
 

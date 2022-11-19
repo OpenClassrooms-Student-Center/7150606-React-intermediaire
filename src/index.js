@@ -12,10 +12,10 @@ import './styles/index.css'
 //ReactDOM v18 ne supporte plus ReactDOM.render, il faut createRoot et root.render
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <Router>
-      <Header />{/* le layout Header s affiche sur toutes les routes*/}
 
+  < React.StrictMode >
+    <Router>
+      <Header />
       {/*Ajouter la prop exact pour que home s affiche sur ce path exactement et non sur un path contenant "/" , 
 c'est a dire que home ne doit pas s afficher dans le path du composant Survey qui commence par "/"*/}
       <Route exact path="/">
@@ -29,7 +29,7 @@ c'est a dire que home ne doit pas s afficher dans le path du composant Survey qu
       </Route>
 
     </Router>
-  </React.StrictMode>
+  </React.StrictMode >
 
 );
 
