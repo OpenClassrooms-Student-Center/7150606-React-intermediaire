@@ -1,17 +1,18 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Admin from './pages/Admin'
 import Header from './layouts/Header'
-import reportWebVitals from './reportWebVitals'
+
 import './styles/index.css'
+import reportWebVitals from './reportWebVitals'
 
 
 //ReactDOM v18 ne supporte plus ReactDOM.render, il faut createRoot et root.render
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
+//const root = ReactDOM.createRoot(document.getElementById('root'))
+ReactDOM.render(
 
   < React.StrictMode >
     <Router>
@@ -29,7 +30,8 @@ c'est a dire que home ne doit pas s afficher dans le path du composant Survey qu
       </Route>
 
     </Router>
-  </React.StrictMode >
+  </React.StrictMode >,
+  document.getElementById('root')
 
 );
 
