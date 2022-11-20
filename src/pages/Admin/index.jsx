@@ -12,13 +12,10 @@ function Admin() {
 
             </ul>
             <Switch>
-
                 <Route exact path={`${path}/users`}>
                     <Users />
                 </Route>
             </Switch>
-
-
         </section>
     </React.Fragment >
 }
