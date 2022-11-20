@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
+import Question from './pages/Survey/component/Question'
 import Admin from './pages/Admin'
 import Header from './layouts/Header'
 
 import './styles/index.css'
 import reportWebVitals from './reportWebVitals'
+
 
 
 //ReactDOM v18 ne supporte plus ReactDOM.render, il faut createRoot et root.render
@@ -25,6 +27,14 @@ c'est a dire que home ne doit pas s afficher dans le path du composant Survey qu
       <Route path="/survey">
         <Survey />
       </Route>
+      <Route path="/survey/:questionNumber">
+
+        <Question />
+
+      </Route>
+
+
+
       <Route path="/admin">
         <Admin />
       </Route>
