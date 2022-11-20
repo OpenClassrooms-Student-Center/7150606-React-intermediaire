@@ -1,11 +1,14 @@
-import { BrowserRouter as Route, Switch, useRouteMatch } from 'react-router-dom'
+import { BrowserRouter as Route, Switch, Link, useRouteMatch } from 'react-router-dom'
 import Users from "./component/User"
 function Admin() {
     const { path } = useRouteMatch() // renvoit le path actuel du composant Home
     console.log("path actuel admin", path)
     return <div>
         <h1>Administrateur</h1>
+        <ul>
+            <li><Link to={`${path}/users`}>Utilisateurs</Link></li>
 
+        </ul>
         <Switch>
 
             <Route exact path={`${path}/users`}>
