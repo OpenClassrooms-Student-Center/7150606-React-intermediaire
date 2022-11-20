@@ -5,7 +5,7 @@ function Admin() {
     const { path } = useRouteMatch() // renvoit le path actuel du composant Home
     console.log("path actuel admin", path)
     return <React.Fragment>
-        <main>
+        <section>
             <h1>Administrateur</h1>
             <ul>
                 <li><Link to={`${path}/users`}>Utilisateurs</Link></li>
@@ -19,7 +19,7 @@ function Admin() {
             </Switch>
 
 
-        </main>
+        </section>
     </React.Fragment >
 }
 

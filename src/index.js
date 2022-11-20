@@ -17,25 +17,29 @@ ReactDOM.render(
   < React.StrictMode >
     <Router>
       <Header />
-      <Switch>
-        {/*Ajouter la prop exact pour que home s affiche sur ce path exactement et non sur un path contenant "/" , 
+      <main>
+        <Switch>
+
+          {/*Ajouter la prop exact pour que home s affiche sur ce path exactement et non sur un path contenant "/" , 
          c'est a dire que home ne doit pas s afficher dans le path du composant Survey qui commence par "/"*/}
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/survey">
-          <Survey />
-          <Route path="/survey/:questionNumber">
-            <Question />
+          <Route exact path="/">
+            <Home />
           </Route>
-        </Route>
-        <Route path="/admin">
-          <Admin />
-        </Route>
-        <Route>
-          <Error />
-        </Route>
-      </Switch>
+          <Route path="/survey">
+            <Survey />
+            <Route path="/survey/:questionNumber">
+              <Question />
+            </Route>
+          </Route>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <Route>
+            <Error />
+          </Route>
+
+        </Switch>
+      </main>
     </Router>
   </React.StrictMode >,
   document.getElementById('root')
