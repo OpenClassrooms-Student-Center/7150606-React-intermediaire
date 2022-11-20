@@ -1,7 +1,7 @@
 function Users() {
-    return <div>
+    return <section>
         <h2> Paramètres-users</h2>
-    </div>
+    </section>
 }
 
 export default Users
