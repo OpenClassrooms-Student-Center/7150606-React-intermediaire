@@ -1,24 +1,26 @@
+
 import Card from "../../components/Card"
 // import des images par defauts des profils
-import DefaultPicture from '../../assets/profil.png'
+
 
 // definition d une liste de données de profils
 
+
 const freelanceProfiles = [
     {
-        name: 'Jane Doe',
-        jobTitle: 'Devops',
-        picture: DefaultPicture,
+        name: "Jane Doe",
+        jobTitle: "Devops",
+
     },
     {
-        name: 'John Doe',
-        jobTitle: 'Developpeur frontend',
-        picture: DefaultPicture,
+        name: "John Doe",
+        jobTitle: "Developpeur frontend",
+
     },
     {
-        name: 'Jeanne Biche',
-        jobTitle: 'Développeuse Fullstack',
-        picture: DefaultPicture,
+        name: "Jeanne Biche",
+        jobTitle: "Développeuse Fullstack",
+
     },
 ]
 
@@ -30,7 +32,7 @@ function Freelances() {
                 <Card
                     key={`${profile.name}-${index}`}// definition des key pour les liste de données profiles, a chaque generation de l element courant profile
                     label={profile.jobTitle}
-                    picture={profile.picture}
+                    //le prop picture: est defini par defaut dans la fonction Card
                     title={profile.name}
                 />
             ))}
