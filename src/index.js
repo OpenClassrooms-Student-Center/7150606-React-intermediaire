@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Question from './pages/Survey/component/Question'
 import Admin from './pages/Admin'
+import Results from './pages/Results'
+import Freelances from './pages/Freelances'
 import Header from './layouts/Header'
 import Error from "./components/Error"
 import './styles/index.css'
@@ -33,6 +35,12 @@ ReactDOM.render(
           </Route>
           <Route path="/admin">
             <Admin />
+          </Route>
+          <Route path="/results">
+            <Results />
+          </Route>
+          <Route path="/freelances">
+            <Freelances />
           </Route>
           <Route>
             <Error />
