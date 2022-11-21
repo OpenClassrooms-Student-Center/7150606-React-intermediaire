@@ -6,9 +6,10 @@ function Header() {
         <header>
             <nav>
                 <ul>
+                    <li><Link to="/admin"> Admin</Link></li>
                     <li><Link to="/"> Accueil</Link></li>
                     <li><Link to="/survey"> Questionnaire</Link></li>
-                    <li><Link to="/admin"> Admin</Link></li>
+                    <li><Link to="/freelances"> Profils</Link></li>
                 </ul>
 
             </nav>
