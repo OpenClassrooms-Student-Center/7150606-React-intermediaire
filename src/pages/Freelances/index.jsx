@@ -31,7 +31,7 @@ function Freelances() {
                     key={`${profile.name}-${index}`}// definition des key pour les liste de données profiles, a chaque generation de l element courant profile
                     label={profile.jobTitle}
                     picture={profile.picture}
-                    title="42"
+                    title={profile.name}
                 />
             ))}
         </div>

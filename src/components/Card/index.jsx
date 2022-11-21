@@ -15,8 +15,13 @@ function Card({ label, title, picture }) {
 
 Card.propTypes = {
     label: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
     picture: PropTypes.string
+}
+
+//definition d un prop title par defaut
+Card.defaultProps = {
+    title: 'Mon titre par défaut',
 }
 
 export default Card
