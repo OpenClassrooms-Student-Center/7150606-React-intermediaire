@@ -1,6 +1,6 @@
 import Card from "../../components/Card"
 // import des images par defauts des profils
-import DefaultPicture from '../../assets/dev-web.jpg'
+import DefaultPicture from '../../assets/profil.png'
 
 // definition d une liste de données de profils
 
@@ -31,7 +31,7 @@ function Freelances() {
                     key={`${profile.name}-${index}`}// definition des key pour les liste de données profiles, a chaque generation de l element courant profile
                     label={profile.jobTitle}
                     picture={profile.picture}
-                    title={profile.name}
+                    title="42"
                 />
             ))}
         </div>
