@@ -9,11 +9,11 @@ function Header() {
                 <ul>
                     <li><StyledLink to="/admin"> Admin</StyledLink></li>
                     <li><StyledLink to="/"> Accueil</StyledLink></li>
+                    <li><StyledLink to="/freelances"> Profils</StyledLink></li>
                     {/* ajput d une prop isFullLink pour le style*/}
                     <li><StyledLink to="/survey" $isFullLink > Questionnaire</StyledLink></li>
-                    <li><StyledLink to="/freelances"> Profils</StyledLink></li>
-                </ul>
 
+                </ul>
             </nav>
         </StyledHeader>
     )
