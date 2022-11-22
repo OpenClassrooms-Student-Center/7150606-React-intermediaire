@@ -8,25 +8,42 @@ import styled from "styled-components"
 import defaultPictures from "../../assets/profil.png"
 
 //.........................................CREATION DES COMPOSANT STYLED..............................................................
+
 //les composant styled sont ecrit en Pascale Case comme les composant react
-const CardLabel = styled.span`
-color: #5843e4;
-font-size: 22px;
-font-weight: bold;
-`
-const CardImage = styled.img`
+const CardLabel = styled.span``
+const CardImage = styled.img``
+//imbrication de CardContainer avec ses éléments enfants , pseudo selecteurs nested
+const CardContainer = styled.div`
+display: flex;
+flex-direction: column;
+padding: 15px;
+  ${CardLabel}{
+    color: #5843e4;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  ${CardImage}{
     height: 80px;
     width: 80px;
     border-radius: 50%;
-`
+    border: 2px solid #5843e4;
+  }
+  .card-title { 
+    font-weight: bold;
+    &:hover {
+        color: #5843e4;
 
+    }
+  }
+
+`
 function Card({ label, title, picture }) {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', padding: 15 }}>
+        <CardContainer>
             <CardLabel>{label}</CardLabel>
             <CardImage src={picture} alt="freelance" />
-            <span>{title}</span>
-        </div>
+            <span className="card-title">{title}</span>
+        </CardContainer>
     )
 }
 
