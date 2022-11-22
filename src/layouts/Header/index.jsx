@@ -1,29 +1,21 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
 
-// creation d un styled composant avec un element qui n existe pas dans le DOM mais avec un element Link qui provient d une bibliotheque "react router dom"
-//passé en parametre de styled
-const StyledLink = styled(Link)`
-    padding: 15px;
-    color: #8186a0;
-    text-decoration: none;
-    font-size: 18px;
-`
+import { StyledHeader, StyledLink } from "../../styles/Header.js"
 
 function Header() {
 
     return (
-        <header>
-            <nav>
+        <StyledHeader>
+            <nav className="nav-bar">
                 <ul>
                     <li><StyledLink to="/admin"> Admin</StyledLink></li>
                     <li><StyledLink to="/"> Accueil</StyledLink></li>
-                    <li><StyledLink to="/survey"> Questionnaire</StyledLink></li>
+                    {/* ajput d une prop isFullLink pour le style*/}
+                    <li><StyledLink to="/survey" $isFullLink > Questionnaire</StyledLink></li>
                     <li><StyledLink to="/freelances"> Profils</StyledLink></li>
                 </ul>
 
             </nav>
-        </header>
+        </StyledHeader>
     )
 }
 
