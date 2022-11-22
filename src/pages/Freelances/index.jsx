@@ -1,11 +1,11 @@
-
+//import du compisant react Card
+import React from "react"
 import Card from "../../components/Card"
-// import des images par defauts des profils
 
+//import du styled component
+import CardContainer from "../../styles/pages/Freelances"
 
 // definition d une liste de données de profils
-
-
 const freelanceProfiles = [
     {
         name: "Jane Doe",
@@ -25,9 +25,10 @@ const freelanceProfiles = [
 ]
 
 function Freelances() {
-    return (
-        <div>
-            <h1>Freelances 🧑‍💻 🧑‍💻 🧑‍💻</h1>
+    return (<React.Fragment>
+        <h1>Freelances 🧑‍💻 🧑‍💻 🧑‍💻</h1>
+        <CardContainer>
+
             {freelanceProfiles.map((profile, index) => (
                 <Card
                     key={`${profile.name}-${index}`}// definition des key pour les liste de données profiles, a chaque generation de l element courant profile
@@ -36,7 +37,8 @@ function Freelances() {
                     title={profile.name}
                 />
             ))}
-        </div>
+        </CardContainer>
+    </React.Fragment>
     )
 }
 

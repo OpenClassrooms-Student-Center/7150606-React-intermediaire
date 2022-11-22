@@ -9,8 +9,10 @@ import Results from './pages/Results'
 import Freelances from './pages/Freelances'
 import Header from './layouts/Header'
 import Error from "./components/Error"
-import './styles/index.css'
 import reportWebVitals from './reportWebVitals'
+
+// IMPORT DU STYLE DE BASE SUR TOUTES LES ROUTES ET CONTENU DES PAGES ET COMPOSANTS
+import GlobalStyle from './styles/bases/GlobalStyle'
 
 //ReactDOM v18 ne supporte plus ReactDOM.render, il faut createRoot et root.render
 //const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -18,6 +20,7 @@ ReactDOM.render(
 
   < React.StrictMode >
     <Router>
+      <GlobalStyle /> {/*style globale appliqué a toutes les routes et a toutes le contenu des pages et composants*/}
       <Header />
       <main>
         <Switch>

@@ -1,5 +1,5 @@
-
-import { StyledHeader, StyledLink } from "../../styles/Header.js"
+//import du styled component
+import { StyledHeader, StyledLink } from "../../styles/layouts/Header.js"
 
 function Header() {
 

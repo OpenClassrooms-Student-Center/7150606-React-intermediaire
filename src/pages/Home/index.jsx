@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { HomeContainer, Ballon } from "../../styles/Home.js"
+
+//import du styled component
+import { HomeContainer, Ballon } from "../../styles/pages/Home.js"
 
 function Home() {
     const [scaleAnim, setScaleAnim] = useState(0.5)// etat initia du scale

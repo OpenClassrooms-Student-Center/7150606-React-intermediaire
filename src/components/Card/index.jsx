@@ -1,7 +1,8 @@
 
 // import de PROPTYPES pour les props Card 
 import PropTypes from "prop-types"
-import { CardContainer, CardImage, CardLabel } from "../../styles/Freelances__Card.js"
+//import du styled component
+import { CardWrapper, CardImage, CardLabel } from "../../styles/components/Card.js"
 
 // import des profils et de l image par defaut de picture
 import defaultPictures from "../../assets/profil.png"
@@ -9,11 +10,11 @@ import defaultPictures from "../../assets/profil.png"
 
 function Card({ label, title, picture }) {
     return (
-        <CardContainer>
+        <CardWrapper>
             <CardLabel>{label}</CardLabel>
             <CardImage src={picture} alt="freelance" />
             <span className="card-title">{title}</span>
-        </CardContainer>
+        </CardWrapper>
     )
 }
 
