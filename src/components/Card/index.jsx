@@ -1,42 +1,12 @@
+
 // import de PROPTYPES pour les props Card 
 import PropTypes from "prop-types"
-
-//import du styled de styled-components pour les composant style CSS in JS
-import styled from "styled-components"
+import { CardContainer, CardImage, CardLabel } from "../../styles/Freelances__Card.js"
 
 // import des profils et de l image par defaut de picture
 import defaultPictures from "../../assets/profil.png"
 
-//.........................................CREATION DES COMPOSANT STYLED..............................................................
 
-//les composant styled sont ecrit en Pascale Case comme les composant react
-const CardLabel = styled.span``
-const CardImage = styled.img``
-//imbrication de CardContainer avec ses éléments enfants , pseudo selecteurs nested
-const CardContainer = styled.div`
-display: flex;
-flex-direction: column;
-padding: 15px;
-  ${CardLabel}{
-    color: #5843e4;
-    font-size: 22px;
-    font-weight: bold;
-  }
-  ${CardImage}{
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    border: 2px solid #5843e4;
-  }
-  .card-title { 
-    font-weight: bold;
-    &:hover {
-        color: #5843e4;
-
-    }
-  }
-
-`
 function Card({ label, title, picture }) {
     return (
         <CardContainer>
