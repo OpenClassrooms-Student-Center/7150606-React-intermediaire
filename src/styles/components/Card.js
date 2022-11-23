@@ -18,9 +18,10 @@ const CardWrapper = styled.div`
   padding: 15px;
   background-color: ${colors.backgroundLight};
   border-radius: 30px;
-  width: 25%;
+  width: 300px;
   height: 300px;
   transition: 200ms;
+  justify-content: space-around;
 
   &:hover {
     cursor: pointer;
@@ -31,16 +32,23 @@ const CardWrapper = styled.div`
     color: #5843e4;
     font-size: 22px;
     font-weight: bold;
+    align-self: start;
+    
   }
   ${CardImage}{
-    height: 80px;
-    width: 80px;
+    height: 150px;
+    width: 150px;
+   
     border-radius: 50%;
  
   }
 
   .card-title { 
     font-weight: bold;
+    color: black;
+    font-size: 22px;
+    font-weight: normal;
+    align-self: center;
     &:hover {
         color: #5843e4;
 

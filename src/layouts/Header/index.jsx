@@ -1,11 +1,19 @@
+import { Link } from "react-router-dom"
+
+import DarkLogo from '../../assets/dark-logo.png'
+
 //import du styled component
-import { StyledHeader, StyledLink } from "../../styles/layouts/Header.js"
+import { StyledHeader, HomeLogo } from "../../styles/layouts/Header.js"
+import { StyledLink } from "../../styles/components/atoms/Link.js"
 
 function Header() {
 
     return (
         <StyledHeader>
-            <nav className="nav-bar">
+            <Link to="/">
+                <HomeLogo src={DarkLogo} />
+            </Link>
+            <nav >
                 <ul>
                     <li><StyledLink to="/admin"> Admin</StyledLink></li>
                     <li><StyledLink to="/"> Accueil</StyledLink></li>
