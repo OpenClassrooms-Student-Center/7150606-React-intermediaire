@@ -31,12 +31,18 @@ function Survey() {
     // }
 
     useEffect(() => {
-        fetch(`http://localhost:8000/survey`).then((response) =>
-            response.json().then(({ surveyData }) => {
-                console.log("data suveydata", surveyData)
+        fetch(`http://localhost:8000/survey`)
+            .then((response) => response.json())
+            .then(({ surveyData }) => { // on recupere l 'objet nommé surveyData dans l objet de la reponse
+                console.log("data surveydata", surveyData)
+                // apres le premier render (uniquement) du composant dont le state est vide,
+                //useEffet execute la requête avec fetch qui met a jour le state avec les données requêté sur l api,
+                //le composant est re-render avce le state mis a jour mais useEffect n execute plus la requete apres,
+                // malgré le re-render de mise a jour du state grace  au tableau vide
+                setSurveyData(surveyData)
 
             })
-        )
+
     }, [])
 
     return <section>
@@ -46,6 +52,7 @@ function Survey() {
             <QuestionContent>{surveyData[questionNumber]}</QuestionContent>
             <LinkWrapper>
                 <Link to={`/survey/${prev}`}>Précédent</Link>
+                {/*on verifie si la question suivante contient une valeur, si ce n est pas le cas on redirige vers la page resultat*/}
                 {surveyData[questionNumberInt + 1] ? (
                     <Link to={`/survey/${next}`}>Suivant</Link>
                 ) : (
