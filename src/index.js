@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
-import Question from './pages/Survey/component/Question'
+
 import Admin from './pages/Admin'
 import Results from './pages/Results'
 import Freelances from './pages/Freelances'
@@ -30,11 +30,8 @@ ReactDOM.render(
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/survey">
+          <Route path="/survey/:questionNumber">
             <Survey />
-            <Route path="/survey/:questionNumber">
-              <Question />
-            </Route>
           </Route>
           <Route path="/admin">
             <Admin />
