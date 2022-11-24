@@ -42,6 +42,7 @@ function Survey() {
                 setSurveyData(surveyData)
 
             })
+            .catch((error) => console.log("erreur requete", error))
 
     }, [])
 
@@ -61,6 +62,8 @@ function Survey() {
             </LinkWrapper>
         </SurveyContainer>
     </section>
+
+
 }
 
 export default Survey
