@@ -41,13 +41,13 @@ function Survey() {
     useEffect(() => {
         // delimite le debut du chargement des donnés ce qui evite les moment de blanc qui affichera a la place un loader dans le render du composant
         // avant la mise a jour du state avec les données de l api
-        {/*  setIsLoading(true)*/ }
+        setIsLoading(true)
         fetch(`http://localhost:8000/survey`)
             .then((response) => response.json())
             .then(({ surveyData }) => { // on recupere l 'objet nommé surveyData dans l objet de la reponse
                 console.log("data surveydata", surveyData)
-
-                {/*  setIsLoading(false)*/ }
+                setSurveyData(surveyData)
+                setIsLoading(false)
 
             })
             .catch((error) => console.log("erreur requete", error))
@@ -62,14 +62,14 @@ function Survey() {
             {/* condition d affichage du loader tant que les données ne sont pas mise a jour avec fetch qui recupere les données 
             et then qui  envoit  la promesse dans la mise a jour du state*/}
 
-
-            <Loader>
-                <Spinner className="spinner1" />
-                <Spinner className="spinner2" />
-                <Spinner className="spinner3" />
-                <Spinner className="spinner4" />
-            </Loader>
-            <QuestionContent>{surveyData[questionNumber]}</QuestionContent>
+            {isLoading ?
+                <Loader>
+                    <Spinner className="spinner1" />
+                    <Spinner className="spinner2" />
+                    <Spinner className="spinner3" />
+                    <Spinner className="spinner4" />
+                </Loader> :
+                <QuestionContent>{surveyData[questionNumber]}</QuestionContent>}
 
             <LinkWrapper>
                 <Link to={`/survey/${prev}`}>Précédent</Link>
