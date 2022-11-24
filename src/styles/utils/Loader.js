@@ -2,15 +2,15 @@ import colors from './color'
 import styled from 'styled-components'
 import { keyframes } from 'styled-components'
 
-const rotate = keyframes`
+const opacity = keyframes`
     from {
-        transform: rotate(0deg);
+       opacity: 0.4;
        
     }
  
     to {
-    transform: rotate(360deg);
-    border-color:black;
+   opacity:1;
+   
     }
 `
 
@@ -36,10 +36,10 @@ export const Spinner = styled.div`
 
 export const Loader = styled.div`
 
-    border: 5px solid transparent;
+    
     padding: 15px;
   
-    animation: ${rotate} 4000ms infinite linear;
+    animation: ${opacity} 4000ms -2000ms infinite linear;
     position: relative;
    
     height:0px;
