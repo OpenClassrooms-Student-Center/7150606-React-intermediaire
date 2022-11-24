@@ -43,7 +43,7 @@ function Survey() {
     // }
     //fetchData() ;
 
-    // }, []
+    // }, [] )
 
 
     // apres le premier render (uniquement) du composant dont le state est vide,
