@@ -1,35 +1,40 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Results from './pages/Results'
 import Freelances from './pages/Freelances'
 import Header from './components/Header'
 import Error from './components/Error'
+import { createGlobalStyle } from 'styled-components'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/survey/:questionNumber",
+    element:<Survey />,
+  },
+  {
+    path: "/results",
+    element:<Results />,
+  },
+  {
+    path: "/freelances",
+    element:<Freelances />,
+  },
+]);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/survey/:questionNumber">
-          <Survey />
-        </Route>
-        <Route path="/results">
-          <Results />
-        </Route>
-        <Route path="/freelances">
-          <Freelances />
-        </Route>
-        <Route>
-          <Error />
-        </Route>
-      </Switch>
-    </Router>
+    <RouterProvider router={router} />
+      <GlobalStyle />
   </React.StrictMode>,
   document.getElementById('root')
 )
