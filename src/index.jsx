@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Results from './pages/Results'
@@ -19,23 +19,13 @@ ReactDOM.render(
         <SurveyProvider>
           <GlobalStyle />
           <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/survey/:questionNumber">
-              <Survey />
-            </Route>
-            <Route path="/results">
-              <Results />
-            </Route>
-            <Route path="/freelances">
-              <Freelances />
-            </Route>
-            <Route>
-              <Error />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/survey/:questionNumber" element={<Survey />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/freelances" element={<Freelances />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
         </SurveyProvider>
         <Footer />
       </ThemeProvider>
