@@ -9,7 +9,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params
+    const { id } = this.props
 
     fetch(`http://localhost:8000/freelance?id=${id}`)
       .then((response) => response.json())
