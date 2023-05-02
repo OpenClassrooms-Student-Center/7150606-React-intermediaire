@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Results from './pages/Results'
 import Freelances from './pages/Freelances'
-import Profile from './pages/Profile'
+import ProfileContainer from './components/ProfileContainer'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Error from './components/Error'
@@ -19,27 +19,15 @@ ReactDOM.render(
         <SurveyProvider>
           <GlobalStyle />
           <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/survey/:questionNumber">
-              <Survey />
-            </Route>
-            <Route path="/results">
-              <Results />
-            </Route>
-            <Route path="/freelances">
-              <Freelances />
-            </Route>
-            <Route
-              path="/profile/:id"
-              render={(props) => <Profile {...props} />}
-            />
-            <Route path="*">
-              <Error />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/survey/:questionNumber" element={<Survey />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/freelances" element={<Freelances />} />
+            {/* eslint-disable-next-line no-undef */}
+            <Route path="/profile/:id" element={<ProfileContainer />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
           <Footer />
         </SurveyProvider>
       </ThemeProvider>
